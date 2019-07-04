@@ -55,7 +55,7 @@ var loaderTypes = {
     misc: {}
 };
 
-var audioExtensions = ['aac', 'ac3', 'caf', 'flac', 'm4a', 'mp3', 'mp4', 'ogg', 'wav', 'webm'];
+var audioExtensions = ['aac', 'ac3', 'caf', 'flac', 'm4a', 'mp3', 'ogg', 'wav', 'webm'];
 var imageExtensions = ['bmp', 'gif', 'jpg', 'jpeg', 'png', 'webp'];
 var fontExtensions = ['eot', 'otf', 'svg', 'ttf', 'woff', 'woff2'];
 var bitmapFontExtensions = ['xml', 'fnt'];

@@ -6,6 +6,11 @@ export namespace Images {
 
         static getPNG(): string { return require('assets/images/background_template.png'); }
     }
+    export class ImagesBackground {
+        static getName(): string { return 'background'; }
+
+        static getPNG(): string { return require('assets/images/background.png'); }
+    }
 }
 
 export namespace Spritesheets {
@@ -172,5 +177,19 @@ export namespace Shaders {
     }
 }
 export namespace Misc {
-    class IExistSoTypeScriptWillNotComplainAboutAnEmptyNamespace {}
+    export class VideoVcm {
+        static getName(): string { return 'vcm'; }
+
+        static getFile(): string { return require('assets/video/vcm.mp4'); }
+    }
+    export class VideoVideoStandByNeonHANDBRAKE {
+        static getName(): string { return 'video_standBy_neon_HANDBRAKE'; }
+
+        static getFile(): string { return require('assets/video/video_standBy_neon_HANDBRAKE.mp4'); }
+    }
+    export class VideoVideoStandByNeon {
+        static getName(): string { return 'video_standBy_neon'; }
+
+        static getFile(): string { return require('assets/video/video_standBy_neon.mp4'); }
+    }
 }

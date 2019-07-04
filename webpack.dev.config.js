@@ -4,6 +4,7 @@ var HtmlWebpackPlugin = require('html-webpack-plugin');
 var CleanWebpackPlugin = require('clean-webpack-plugin');
 var WebpackSynchronizableShellPlugin = require('webpack-synchronizable-shell-plugin');
 
+
 module.exports = {
     mode: 'development',
     devtool: 'source-map',
@@ -18,6 +19,7 @@ module.exports = {
             pixi: path.join(__dirname, 'node_modules/phaser-ce/build/custom/pixi.js'),
             phaser: path.join(__dirname, 'node_modules/phaser-ce/build/custom/phaser-split.js'),
             p2: path.join(__dirname, 'node_modules/phaser-ce/build/custom/p2.js'),
+            synfo: path.join(__dirname, 'node_modules/systeminformation/lib/index.js'),
             assets: path.join(__dirname, 'assets/')
         }
     },
@@ -44,7 +46,7 @@ module.exports = {
                 'Barrio'
             ]),
             'SOUND_EXTENSIONS_PREFERENCE': JSON.stringify([ // Re-order the items in this array to change the desired order of checking your audio sources (do not add/remove/modify the entries themselves)
-                'webm', 'ogg', 'm4a', 'mp3', 'aac', 'ac3', 'caf', 'flac', 'mp4', 'wav'
+                'webm', 'ogg', 'm4a', 'mp3', 'aac', 'ac3', 'caf', 'flac', 'wav'
             ])
         }),
         new CleanWebpackPlugin([
