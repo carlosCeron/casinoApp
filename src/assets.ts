@@ -9,7 +9,14 @@ export namespace Images {
     export class ImagesBackground {
         static getName(): string { return 'background'; }
 
+        static getJPG(): string { return require('assets/images/background.jpg'); }
         static getPNG(): string { return require('assets/images/background.png'); }
+    }
+    export class ImagesFooter {
+        static getName(): string { return 'footer'; }
+
+        static getJPG(): string { return require('assets/images/footer.jpg'); }
+        static getPNG(): string { return require('assets/images/footer.PNG'); }
     }
 }
 
@@ -177,6 +184,11 @@ export namespace Shaders {
     }
 }
 export namespace Misc {
+    export class ImagesScore {
+        static getName(): string { return 'score'; }
+
+        static getFile(): string { return require('assets/images/score.PNG'); }
+    }
     export class VideoVcm {
         static getName(): string { return 'vcm'; }
 
