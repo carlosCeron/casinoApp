@@ -5,6 +5,7 @@ var CleanWebpackPlugin = require('clean-webpack-plugin');
 var WebpackSynchronizableShellPlugin = require('webpack-synchronizable-shell-plugin');
 
 
+
 module.exports = {
     mode: 'development',
     devtool: 'source-map',

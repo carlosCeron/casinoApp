@@ -12,11 +12,21 @@ export namespace Images {
         static getJPG(): string { return require('assets/images/background.jpg'); }
         static getPNG(): string { return require('assets/images/background.png'); }
     }
+    export class ImagesButtonSpriteSheet {
+        static getName(): string { return 'button_sprite_sheet'; }
+
+        static getPNG(): string { return require('assets/images/button_sprite_sheet.png'); }
+    }
     export class ImagesFooter {
         static getName(): string { return 'footer'; }
 
         static getJPG(): string { return require('assets/images/footer.jpg'); }
         static getPNG(): string { return require('assets/images/footer.PNG'); }
+    }
+    export class ImagesLogin {
+        static getName(): string { return 'login'; }
+
+        static getPNG(): string { return require('assets/images/login.png'); }
     }
 }
 

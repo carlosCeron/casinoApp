@@ -42,6 +42,7 @@
     "file-loader": "^2.0.0",
     "html-webpack-plugin": "^3.2.0",
     "imagejs": "^0.0.9",
+    "js-meter": "^1.1.4",
     "node-os-utils": "^1.0.7",
     "nodejs-system-info": "^1.0.6",
     "npm-check": "^5.9.0",

@@ -1,6 +1,7 @@
 import 'p2';
 import 'pixi';
 import 'phaser';
+import 'js-meter';
 
 import * as WebFontLoader from 'webfontloader';
 
@@ -9,6 +10,7 @@ import Preloader from './states/preloader';
 import Home from './states/home'
 import * as Utils from './utils/utils';
 import * as Assets from './assets';
+const jm = require('js-meter');
 
 class App extends Phaser.Game {
     constructor(config: Phaser.IGameConfig) {
@@ -43,9 +45,14 @@ function startApp(): void {
     };
 
     let app = new App(gameConfig);
+
 }
 
 window.onload = () => {
+    /*const isPrint = true;
+    const isKb = true;       // or Mb
+    const m = new jm({isPrint, isKb});
+    console.log(m); */
     let webFontLoaderOptions: any = null;
     let webFontsToLoad: string[] = GOOGLE_WEB_FONTS;
 
