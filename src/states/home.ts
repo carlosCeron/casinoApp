@@ -25,8 +25,8 @@ export default class Home extends Phaser.State{
     private footer !: Phaser.Sprite;
     private valor : number;
     private boton : Phaser.Button;
+    contador : number = 0;
 
-    
 
     public preload(): void {
 
@@ -37,14 +37,19 @@ export default class Home extends Phaser.State{
         this.game.load.image('footer', Assets.Images.ImagesFooter.getPNG());
         this.game.load.video('video1',  Assets.Misc.VideoVcm.getFile());
         this.game.load.video('video2',  Assets.Misc.VideoVideoStandByNeonHANDBRAKE.getFile());
-        this.game.load.video('video3',  require('assets/video/video_standBy_neon.mp4'));
+        this.game.load.video('video3', Assets.Misc.VideoBigBuckBunnyTrailer.getFile());
+        this.game.load.video('video4', Assets.Misc.VideoElephantsDream.getFile());
+        //this.game.load.video('video3',  require('assets/video/video_standBy_neon.mp4'));
+
         this.game.load.spritesheet('boton', Assets.Images.ImagesButtonSpriteSheet.getPNG(), 193, 71);
+        this.contador = 0;
         
         
     }
     
     public create(): void{
 
+        //his.game.time.events.add(10000, this.changeSource);
         this.valor = 501360;
         this.scale.scaleMode = Phaser.ScaleManager.SHOW_ALL;
         this.scale.pageAlignHorizontally = true;
@@ -110,14 +115,42 @@ export default class Home extends Phaser.State{
                 
     } 
 
-    public actionClick(): void{
+
+    actionClick = (): void => {
+
         this.video1 = this.game.add.video('video1');
         this.video2 = this.game.add.video('video2');
+        this.video1.play(true);
+        this.video2.play(true);
+        this.video1.addToWorld(725, 220,0.7, 0.7, 0.215, 0.28);
+        this.video2.addToWorld(300, 220,0.7, 0.7, 0.215, 0.28);
+
+        console.log((this.contador % 2) == 0);
+        
+        if((this.contador % 2) == 0){
+
+            this.video1.changeSource(Assets.Misc.VideoVcm.getFile());
+            this.video2.changeSource(Assets.Misc.VideoVideoStandByNeonHANDBRAKE.getFile());
+
+                /*this.video1 = this.game.add.video('video1');
+                this.video2 = this.game.add.video('video2'); 
                 this.video1.play(true);
                 this.video2.play(true);
                 this.video1.addToWorld(725, 220,0.7, 0.7, 0.215, 0.28);
                 this.video2.addToWorld(300, 220,0.7, 0.7, 0.215, 0.28);
-        console.log("Boton presionado");
+                console.log("Boton presionado");*/
+        }else{
+            this.video1.changeSource(Assets.Misc.VideoBigBuckBunnyTrailer.getFile());
+            this.video2.changeSource(Assets.Misc.VideoElephantsDream.getFile());
+        }
+        this.contador = this.contador + 1;
+        console.log("Contador esta en " + this.contador);
+    }
+
+    changeSource = () : void => {
+            console.log("ingreso aqui");
+            this.video1.changeSource(Assets.Misc.VideoBigBuckBunnyTrailer.getFile());
+            this.video2.changeSource(Assets.Misc.VideoElephantsDream.getFile());
     }
     
 }

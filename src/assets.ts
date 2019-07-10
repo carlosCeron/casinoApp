@@ -199,6 +199,16 @@ export namespace Misc {
 
         static getFile(): string { return require('assets/images/score.PNG'); }
     }
+    export class VideoBigBuckBunnyTrailer {
+        static getName(): string { return 'big-buck-bunny_trailer'; }
+
+        static getFile(): string { return require('assets/video/big-buck-bunny_trailer.webm'); }
+    }
+    export class VideoElephantsDream {
+        static getName(): string { return 'elephants-dream'; }
+
+        static getFile(): string { return require('assets/video/elephants-dream.webm'); }
+    }
     export class VideoVcm {
         static getName(): string { return 'vcm'; }
 
