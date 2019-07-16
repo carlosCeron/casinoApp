@@ -9,7 +9,6 @@ import Preloader from './states/preloader';
 import Home from './states/home'
 import * as Utils from './utils/utils';
 import * as Assets from './assets';
-//const jm = require('js-meter');
 
 class App extends Phaser.Game {
     constructor(config: Phaser.IGameConfig) {
@@ -48,16 +47,7 @@ function startApp(): void {
 }
 
 window.onload = () => {
-    /*const isPrint = true;
-    const isKb = true;       // or Mb
-    const m = new jm({isPrint, isKb});
-    console.log(m); */
-    //const process = require('process');
-
     
-
-    //console.log(window.Performance.memory);
-
     let webFontLoaderOptions: any = null;
     let webFontsToLoad: string[] = GOOGLE_WEB_FONTS;
 

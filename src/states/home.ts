@@ -1,16 +1,6 @@
 import * as Assets from '../assets';
 const os = require('os');
-/*const process = require('process');
-const jm = require('js-meter');
 
-
-console.log(process.memoryUsage()); */
-
-
-/*const isPrint = true
-const isKb = true       // or Mb
-const m = new jm({isPrint, isKb})
-*/
 
 
 
@@ -25,6 +15,7 @@ export default class Home extends Phaser.State{
     private footer !: Phaser.Sprite;
     private valor : number;
     private boton : Phaser.Button;
+    private rectangulo : Phaser.Rectangle;
     contador : number = 0;
 
 
@@ -41,7 +32,7 @@ export default class Home extends Phaser.State{
         this.game.load.video('video4', Assets.Misc.VideoElephantsDream.getFile());
         //this.game.load.video('video3',  require('assets/video/video_standBy_neon.mp4'));
 
-        this.game.load.spritesheet('boton', Assets.Images.ImagesButtonSpriteSheet.getPNG(), 193, 71);
+        this.game.load.spritesheet('boton', Assets.Images.ImagesBoton5.getPNG() , 600, 20);
         this.contador = 0;
         
         
@@ -49,15 +40,17 @@ export default class Home extends Phaser.State{
     
     public create(): void{
 
-        //his.game.time.events.add(10000, this.changeSource);
+
+        this.rectangulo = new Phaser.Rectangle(0,350,1000,60);
+        this.rectangulo
+
         this.valor = 501360;
-        this.scale.scaleMode = Phaser.ScaleManager.SHOW_ALL;
+        this.scale.scaleMode = Phaser.ScaleManager.USER_SCALE;
         this.scale.pageAlignHorizontally = true;
         this.scale.pageAlignVertically = true;
         this.background = this.game.add.sprite(this.game.world.worldScale.x, this.game.world.worldScale.y, 'background');
-        //this.background.scale.setTo(0.5);
-        this.background.scale.x = 0.839;
-        this.background.scale.y = 0.73;
+        this.background.scale.x = 1;
+        this.background.scale.y = 1;
         this.texto1 = this.game.add.text(555, 330, this.valor + " €");
         this.texto1.fill = "#ffeb3b";
         this.texto1.fontSize = 60;
@@ -73,18 +66,11 @@ export default class Home extends Phaser.State{
         this.footer = this.game.add.sprite(10, 425,'footer');
         this.footer.scale.x = 0.953;
         this.footer.scale.y = 1; 
-        //this.footer.bringToTop();
         
-        
-        
-
-
-                
-                console.log('Video 1');
-                console.log('Video 1');
-
-                this.boton = this.game.add.button(50, 425, 'boton', this.actionClick);
-                this.boton.bringToTop();
+        this.boton = this.game.add.button(20, 405, 'boton', this.actionClick);
+        this.boton.scale.x = 0.2;
+        this.boton.scale.y = 0.2;
+        this.boton.bringToTop();
 
         setInterval(() => {
 
@@ -92,16 +78,13 @@ export default class Home extends Phaser.State{
             this.game.debug.text('Free Memory: ' + freeMem + " RAM", 450, 450);
             this.game.debug.text('CPU: ' + os.cpus()[0], 450, 470);
 
-
-
             const numero = Math.floor(Math.random() * (100 - 1) + 100); 
             const aux = (Math.floor(Math.random() * (100 - 1) + 100)) % 2;
 
             if(aux == 0){
-
                 const operacion = (this.valor - numero);
-
                 this.texto1.setText(operacion + " €");
+
             }else{
                 const operacion = (this.valor + numero);
 
@@ -151,6 +134,10 @@ export default class Home extends Phaser.State{
             console.log("ingreso aqui");
             this.video1.changeSource(Assets.Misc.VideoBigBuckBunnyTrailer.getFile());
             this.video2.changeSource(Assets.Misc.VideoElephantsDream.getFile());
+    }
+
+    render = () => {
+        this.game.debug.geom(this.rectangulo, '#0fffff');
     }
     
 }

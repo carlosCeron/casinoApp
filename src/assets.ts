@@ -12,6 +12,31 @@ export namespace Images {
         static getJPG(): string { return require('assets/images/background.jpg'); }
         static getPNG(): string { return require('assets/images/background.png'); }
     }
+    export class ImagesBoton1 {
+        static getName(): string { return 'boton1'; }
+
+        static getPNG(): string { return require('assets/images/boton1.png'); }
+    }
+    export class ImagesBoton2 {
+        static getName(): string { return 'boton2'; }
+
+        static getPNG(): string { return require('assets/images/boton2.png'); }
+    }
+    export class ImagesBoton3 {
+        static getName(): string { return 'boton3'; }
+
+        static getPNG(): string { return require('assets/images/boton3.png'); }
+    }
+    export class ImagesBoton4 {
+        static getName(): string { return 'boton4'; }
+
+        static getPNG(): string { return require('assets/images/boton4.png'); }
+    }
+    export class ImagesBoton5 {
+        static getName(): string { return 'boton5'; }
+
+        static getPNG(): string { return require('assets/images/boton5.png'); }
+    }
     export class ImagesButtonSpriteSheet {
         static getName(): string { return 'button_sprite_sheet'; }
 
