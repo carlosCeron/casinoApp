@@ -15,7 +15,8 @@ export default class Home extends Phaser.State{
     private footer !: Phaser.Sprite;
     private valor : number;
     private boton : Phaser.Button;
-    private rectangulo : Phaser.Rectangle;
+    private rectangulo : Phaser.Graphics;
+    private rectanguloFoot : Phaser.Graphics;
     contador : number = 0;
 
 
@@ -41,31 +42,35 @@ export default class Home extends Phaser.State{
     public create(): void{
 
 
-        this.rectangulo = new Phaser.Rectangle(0,350,1000,60);
-        this.rectangulo
+        this.rectangulo = this.game.add.graphics();
+        this.rectangulo.beginFill(0x0d47a1, 1);
+        this.rectangulo.drawRect(0, 340, 1000, 80);
+
+
+        this.rectanguloFoot = this.game.add.graphics();
+        this.rectangulo.beginFill(0x37474f, 1);
+        this.rectangulo.drawRect(0, 420, 1000, 80);
 
         this.valor = 501360;
         this.scale.scaleMode = Phaser.ScaleManager.USER_SCALE;
         this.scale.pageAlignHorizontally = true;
         this.scale.pageAlignVertically = true;
-        this.background = this.game.add.sprite(this.game.world.worldScale.x, this.game.world.worldScale.y, 'background');
-        this.background.scale.x = 1;
-        this.background.scale.y = 1;
-        this.texto1 = this.game.add.text(555, 330, this.valor + " €");
-        this.texto1.fill = "#ffeb3b";
-        this.texto1.fontSize = 60;
-        this.texto1.stroke = "#212121";
+        this.game.stage.setBackgroundColor(0xc2185b);
+        this.texto1 = this.game.add.text(750, 385, this.valor + " €");
+        this.texto1.fill = "#ffff00";
+        this.texto1.fontSize = 40;
+        this.texto1.stroke = "#ff9800";
         this.texto1.strokeThickness = 6;
+        this.texto1.anchor.set(0.5);
 
-        this.totalMount = this.game.add.sprite(10, 320,'score');
+        /*this.totalMount = this.game.add.sprite(10, 320,'score');
         this.totalMount.scale.x = 1.315;
-        this.totalMount.scale.y = 0.70;
+        this.totalMount.scale.y = 0.70; */
 
-        this.texto1.bringToTop();
 
-        this.footer = this.game.add.sprite(10, 425,'footer');
+        /*this.footer = this.game.add.sprite(10, 425,'footer');
         this.footer.scale.x = 0.953;
-        this.footer.scale.y = 1; 
+        this.footer.scale.y = 1;  */
         
         this.boton = this.game.add.button(20, 405, 'boton', this.actionClick);
         this.boton.scale.x = 0.2;
@@ -95,6 +100,7 @@ export default class Home extends Phaser.State{
 
           }, 2000);
 
+          this.texto1.bringToTop();
                 
     } 
 
@@ -107,21 +113,11 @@ export default class Home extends Phaser.State{
         this.video2.play(true);
         this.video1.addToWorld(725, 220,0.7, 0.7, 0.215, 0.28);
         this.video2.addToWorld(300, 220,0.7, 0.7, 0.215, 0.28);
-
-        console.log((this.contador % 2) == 0);
         
         if((this.contador % 2) == 0){
 
             this.video1.changeSource(Assets.Misc.VideoVcm.getFile());
             this.video2.changeSource(Assets.Misc.VideoVideoStandByNeonHANDBRAKE.getFile());
-
-                /*this.video1 = this.game.add.video('video1');
-                this.video2 = this.game.add.video('video2'); 
-                this.video1.play(true);
-                this.video2.play(true);
-                this.video1.addToWorld(725, 220,0.7, 0.7, 0.215, 0.28);
-                this.video2.addToWorld(300, 220,0.7, 0.7, 0.215, 0.28);
-                console.log("Boton presionado");*/
         }else{
             this.video1.changeSource(Assets.Misc.VideoBigBuckBunnyTrailer.getFile());
             this.video2.changeSource(Assets.Misc.VideoElephantsDream.getFile());
@@ -131,13 +127,13 @@ export default class Home extends Phaser.State{
     }
 
     changeSource = () : void => {
-            console.log("ingreso aqui");
             this.video1.changeSource(Assets.Misc.VideoBigBuckBunnyTrailer.getFile());
             this.video2.changeSource(Assets.Misc.VideoElephantsDream.getFile());
     }
 
     render = () => {
-        this.game.debug.geom(this.rectangulo, '#0fffff');
+        /*this.game.debug.geom(this.rectangulo, '#0d47a1');
+        this.game.debug.geom(this.rectanguloFoot, '#37474f'); */
     }
     
 }
