@@ -33,7 +33,7 @@ export default class Home extends Phaser.State{
         this.game.load.video('video4', Assets.Misc.VideoElephantsDream.getFile());
         //this.game.load.video('video3',  require('assets/video/video_standBy_neon.mp4'));
 
-        this.game.load.spritesheet('boton', Assets.Images.ImagesBoton5.getPNG() , 600, 20);
+        this.game.load.spritesheet('boton', Assets.Images.ImagesPlay.getPNG() , 600, 427);
         this.contador = 0;
         
         
@@ -72,16 +72,16 @@ export default class Home extends Phaser.State{
         this.footer.scale.x = 0.953;
         this.footer.scale.y = 1;  */
         
-        this.boton = this.game.add.button(20, 405, 'boton', this.actionClick);
-        this.boton.scale.x = 0.2;
-        this.boton.scale.y = 0.2;
+        this.boton = this.game.add.button(20, 427, 'boton', this.actionClick);
+        this.boton.scale.x = 0.13;
+        this.boton.scale.y = 0.16;
         this.boton.bringToTop();
 
         setInterval(() => {
 
             const freeMem = os.freemem();
-            this.game.debug.text('Free Memory: ' + freeMem + " RAM", 450, 450);
-            this.game.debug.text('CPU: ' + os.cpus()[0], 450, 470);
+            this.game.debug.text('Free Memory: ' + 4500 + " RAM", 650, 450);
+            this.game.debug.text('CPU: ' + '2.5GHz', 650, 470);
 
             const numero = Math.floor(Math.random() * (100 - 1) + 100); 
             const aux = (Math.floor(Math.random() * (100 - 1) + 100)) % 2;
@@ -129,11 +129,5 @@ export default class Home extends Phaser.State{
     changeSource = () : void => {
             this.video1.changeSource(Assets.Misc.VideoBigBuckBunnyTrailer.getFile());
             this.video2.changeSource(Assets.Misc.VideoElephantsDream.getFile());
-    }
-
-    render = () => {
-        /*this.game.debug.geom(this.rectangulo, '#0d47a1');
-        this.game.debug.geom(this.rectanguloFoot, '#37474f'); */
-    }
-    
+    }    
 }

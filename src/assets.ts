@@ -53,6 +53,11 @@ export namespace Images {
 
         static getPNG(): string { return require('assets/images/login.png'); }
     }
+    export class ImagesPlay {
+        static getName(): string { return 'Play'; }
+
+        static getPNG(): string { return require('assets/images/Play.png'); }
+    }
 }
 
 export namespace Spritesheets {
